@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <project name="phinger_db">
+    <!--
+    Required properties (defaults):
+        phinger.db.dsn       ("mysql:host=127.0.0.1")
+        phinger.db.dbname    ("acme")
+        phinger.db.dbuser    ("root")
+        phinger.db.dbpass    ("root")
+        phinger.db.charset   ("utf8")
+        phinger.db.collation ("utf8_general_ci")
+    -->
     <target
             name="phinger:db:create-db"
             description="Create database"
