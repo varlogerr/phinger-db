@@ -11,13 +11,12 @@
         phinger.db.collation ("utf8_general_ci")
     -->
     <target name="phinger:db:create-db" description="Create database">
-        <pdosqlexec
-                url="${phinger.db.dsn}"
-                userid="${phinger.db.dbuser}"
-                password="${phinger.db.dbpass}"
-        >
-            CREATE DATABASE IF NOT EXISTS `${phinger.db.dbname}` DEFAULT CHARACTER SET ${phinger.db.charset} DEFAULT COLLATE ${phinger.db.collation};
-        </pdosqlexec>
+        <phingcall target="phinger:db:run-query">
+            <param
+                    name="phinger.db.query"
+                    value="CREATE DATABASE IF NOT EXISTS `${phinger.db.dbname}` DEFAULT CHARACTER SET ${phinger.db.charset} DEFAULT COLLATE ${phinger.db.collation};"
+            />
+        </phingcall>
     </target>
 
     <!--
@@ -28,13 +27,12 @@
         phinger.db.dbpass    ("root")
     -->
     <target name="phinger:db:drop-db" description="Drop database">
-        <pdosqlexec
-                url="${phinger.db.dsn}"
-                userid="${phinger.db.dbuser}"
-                password="${phinger.db.dbpass}"
-        >
-            DROP DATABASE IF EXISTS `${phinger.db.dbname}`;
-        </pdosqlexec>
+        <phingcall target="phinger:db:run-query">
+            <param
+                    name="phinger.db.query"
+                    value="DROP DATABASE IF EXISTS `${phinger.db.dbname}`;"
+            />
+        </phingcall>
     </target>
 
     <!--
