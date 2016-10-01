@@ -10,10 +10,7 @@
         phinger.db.charset   ("utf8")
         phinger.db.collation ("utf8_general_ci")
     -->
-    <target
-            name="phinger:db:create-db"
-            description="Create database"
-    >
+    <target name="phinger:db:create-db" description="Create database">
         <pdosqlexec
                 url="${phinger.db.dsn}"
                 userid="${phinger.db.dbuser}"
@@ -30,10 +27,7 @@
         phinger.db.dbuser    ("root")
         phinger.db.dbpass    ("root")
     -->
-    <target
-            name="phinger:db:drop-db"
-            description="Drop database"
-    >
+    <target name="phinger:db:drop-db" description="Drop database">
         <pdosqlexec
                 url="${phinger.db.dsn}"
                 userid="${phinger.db.dbuser}"
