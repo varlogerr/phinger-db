@@ -72,4 +72,32 @@
             </else>
         </if>
     </target>
+
+    <!--
+    Required properties (defaults):
+        phinger.db.dsn       ("mysql:host=127.0.0.1")
+        phinger.db.dbuser    ("root")
+        phinger.db.dbpass    ("")
+        phinger.db.dump_path ("./backup/sql/dump.sql")
+    -->
+    <target name="phinger:db:run-file" description="Run sql file">
+        <if>
+            <equals arg1="${phinger.db.dbpass}" arg2="" />
+            <then>
+                <pdosqlexec
+                        url="${phinger.db.dsn}"
+                        userid="${phinger.db.dbuser}"
+                        src="${phinger.db.dump_path}"
+                />
+            </then>
+            <else>
+                <pdosqlexec
+                        url="${phinger.db.dsn}"
+                        userid="${phinger.db.dbuser}"
+                        password="${phinger.db.dbpass}"
+                        src="${phinger.db.dump_path}"
+                />
+            </else>
+        </if>
+    </target>
 </project>

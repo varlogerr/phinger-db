@@ -7,3 +7,4 @@ phinger:
     charset: "utf8"
     collation: "utf8_general_ci"
     query: "SELECT 0;"
+    dump_path: "./backup/sql/dump.sql"
