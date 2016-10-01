@@ -36,4 +36,16 @@
             DROP DATABASE IF EXISTS `${phinger.db.dbname}`;
         </pdosqlexec>
     </target>
+
+    <!--
+    Required properties (defaults):
+        phinger.db.dsn       ("mysql:host=127.0.0.1")
+        phinger.db.dbname    ("acme")
+        phinger.db.dbuser    ("root")
+        phinger.db.dbpass    ("root")
+        phinger.db.charset   ("utf8")
+        phinger.db.collation ("utf8_general_ci")
+    -->
+    <target name="phinger:db:reset-db" description="Reset database"
+            depends="phinger:db:drop-db, phinger:db:create-db" />
 </project>
