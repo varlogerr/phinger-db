@@ -5,6 +5,6 @@ phinger:
     dbuser:  "root"
     dbpass:  ""
     charset: "utf8"
-    collation: "utf8_general_ci"
+    collation: "utf8_unicode_ci"
     query: "SELECT 0;"
     dump_path: "./backup/sql/dump.sql"
