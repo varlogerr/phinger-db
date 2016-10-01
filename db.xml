@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="phinger_db">
+    <target
+            name="phinger:db:create-db"
+            description="Create database"
+    >
+        <pdosqlexec
+                url="${phinger.db.dsn}"
+                userid="${phinger.db.dbuser}"
+                password="${phinger.db.dbpass}"
+        >
+            CREATE DATABASE IF NOT EXISTS `${phinger.db.dbname}` DEFAULT CHARACTER SET ${phinger.db.charset} DEFAULT COLLATE ${phinger.db.collation};
+        </pdosqlexec>
+    </target>
+</project>
