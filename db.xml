@@ -22,4 +22,24 @@
             CREATE DATABASE IF NOT EXISTS `${phinger.db.dbname}` DEFAULT CHARACTER SET ${phinger.db.charset} DEFAULT COLLATE ${phinger.db.collation};
         </pdosqlexec>
     </target>
+
+    <!--
+    Required properties (defaults):
+        phinger.db.dsn       ("mysql:host=127.0.0.1")
+        phinger.db.dbname    ("acme")
+        phinger.db.dbuser    ("root")
+        phinger.db.dbpass    ("root")
+    -->
+    <target
+            name="phinger:db:drop-db"
+            description="Drop database"
+    >
+        <pdosqlexec
+                url="${phinger.db.dsn}"
+                userid="${phinger.db.dbuser}"
+                password="${phinger.db.dbpass}"
+        >
+            DROP DATABASE IF EXISTS `${phinger.db.dbname}`;
+        </pdosqlexec>
+    </target>
 </project>
