@@ -48,4 +48,21 @@
     -->
     <target name="phinger:db:reset-db" description="Reset database"
             depends="phinger:db:drop-db, phinger:db:create-db" />
+
+    <!--
+    Required properties (defaults):
+        phinger.db.dsn    ("mysql:host=127.0.0.1")
+        phinger.db.dbuser ("root")
+        phinger.db.dbpass ("root")
+        phinger.db.query  ("SELECT 0;")
+    -->
+    <target name="phinger:db:run-query" description="Run sql query">
+          <pdosqlexec
+                  url="${phinger.db.dsn}"
+                  userid="${phinger.db.dbuser}"
+                  password="${phinger.db.dbpass}"
+          >
+                ${phinger.db.query}
+          </pdosqlexec>
+    </target>
 </project>
