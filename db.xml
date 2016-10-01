@@ -55,12 +55,21 @@
         phinger.db.query  ("SELECT 0;")
     -->
     <target name="phinger:db:run-query" description="Run sql query">
-          <pdosqlexec
-                  url="${phinger.db.dsn}"
-                  userid="${phinger.db.dbuser}"
-                  password="${phinger.db.dbpass}"
-          >
-                ${phinger.db.query}
-          </pdosqlexec>
+        <if>
+            <equals arg1="${phinger.db.dbpass}" arg2="" />
+            <then>
+                <pdosqlexec
+                        url="${phinger.db.dsn}"
+                        userid="${phinger.db.dbuser}"
+                >${phinger.db.query}</pdosqlexec>
+            </then>
+            <else>
+                <pdosqlexec
+                        url="${phinger.db.dsn}"
+                        userid="${phinger.db.dbuser}"
+                        password="${phinger.db.dbpass}"
+                >${phinger.db.query}</pdosqlexec>
+            </else>
+        </if>
     </target>
 </project>
