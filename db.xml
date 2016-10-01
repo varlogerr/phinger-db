@@ -6,7 +6,7 @@
         phinger.db.dsn       ("mysql:host=127.0.0.1")
         phinger.db.dbname    ("acme")
         phinger.db.dbuser    ("root")
-        phinger.db.dbpass    ("root")
+        phinger.db.dbpass    ("")
         phinger.db.charset   ("utf8")
         phinger.db.collation ("utf8_general_ci")
     -->
@@ -24,7 +24,7 @@
         phinger.db.dsn       ("mysql:host=127.0.0.1")
         phinger.db.dbname    ("acme")
         phinger.db.dbuser    ("root")
-        phinger.db.dbpass    ("root")
+        phinger.db.dbpass    ("")
     -->
     <target name="phinger:db:drop-db" description="Drop database">
         <phingcall target="phinger:db:run-query">
@@ -40,7 +40,7 @@
         phinger.db.dsn       ("mysql:host=127.0.0.1")
         phinger.db.dbname    ("acme")
         phinger.db.dbuser    ("root")
-        phinger.db.dbpass    ("root")
+        phinger.db.dbpass    ("")
         phinger.db.charset   ("utf8")
         phinger.db.collation ("utf8_general_ci")
     -->
@@ -51,7 +51,7 @@
     Required properties (defaults):
         phinger.db.dsn    ("mysql:host=127.0.0.1")
         phinger.db.dbuser ("root")
-        phinger.db.dbpass ("root")
+        phinger.db.dbpass ("")
         phinger.db.query  ("SELECT 0;")
     -->
     <target name="phinger:db:run-query" description="Run sql query">
