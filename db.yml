@@ -1,10 +1,10 @@
 phinger:
   db:
-    dsn: "mysql:host=127.0.0.1"
-    dbname:  "acme"
-    dbuser:  "root"
-    dbpass:  ""
-    charset: "utf8"
-    collation: "utf8_unicode_ci"
-    query: "SELECT 0;"
-    dump_path: "./backup/sql/dump.sql"
+    dsn: mysql:host=127.0.0.1
+    dbname:  acme
+    dbuser:  root
+    dbpass:  ''
+    charset: utf8
+    collation: utf8_unicode_ci
+    query: SELECT 0;
+    dump_path: ./backup/sql/dump.sql

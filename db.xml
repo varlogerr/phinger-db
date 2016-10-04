@@ -3,12 +3,12 @@
 <project name="phinger_db">
     <!--
     Required properties (defaults):
-        phinger.db.dsn       ("mysql:host=127.0.0.1")
-        phinger.db.dbname    ("acme")
-        phinger.db.dbuser    ("root")
-        phinger.db.dbpass    ("")
-        phinger.db.charset   ("utf8")
-        phinger.db.collation ("utf8_general_ci")
+        phinger.db.dsn       (mysql:host=127.0.0.1)
+        phinger.db.dbname    (acme)
+        phinger.db.dbuser    (root)
+        phinger.db.dbpass    ('')
+        phinger.db.charset   (utf8)
+        phinger.db.collation (utf8_general_ci)
     -->
     <target name="phinger:db:create-db" description="Create database">
         <phingcall target="phinger:db:run-query">
@@ -21,10 +21,10 @@
 
     <!--
     Required properties (defaults):
-        phinger.db.dsn       ("mysql:host=127.0.0.1")
-        phinger.db.dbname    ("acme")
-        phinger.db.dbuser    ("root")
-        phinger.db.dbpass    ("")
+        phinger.db.dsn       (mysql:host=127.0.0.1)
+        phinger.db.dbname    (acme)
+        phinger.db.dbuser    (root)
+        phinger.db.dbpass    ('')
     -->
     <target name="phinger:db:drop-db" description="Drop database">
         <phingcall target="phinger:db:run-query">
@@ -37,22 +37,22 @@
 
     <!--
     Required properties (defaults):
-        phinger.db.dsn       ("mysql:host=127.0.0.1")
-        phinger.db.dbname    ("acme")
-        phinger.db.dbuser    ("root")
-        phinger.db.dbpass    ("")
-        phinger.db.charset   ("utf8")
-        phinger.db.collation ("utf8_general_ci")
+        phinger.db.dsn       (mysql:host=127.0.0.1)
+        phinger.db.dbname    (acme)
+        phinger.db.dbuser    (root)
+        phinger.db.dbpass    ('')
+        phinger.db.charset   (utf8)
+        phinger.db.collation (utf8_general_ci)
     -->
     <target name="phinger:db:reset-db" description="Reset database"
             depends="phinger:db:drop-db, phinger:db:create-db" />
 
     <!--
     Required properties (defaults):
-        phinger.db.dsn    ("mysql:host=127.0.0.1")
-        phinger.db.dbuser ("root")
-        phinger.db.dbpass ("")
-        phinger.db.query  ("SELECT 0;")
+        phinger.db.dsn    (mysql:host=127.0.0.1)
+        phinger.db.dbuser (root)
+        phinger.db.dbpass ('')
+        phinger.db.query  (SELECT 0;)
     -->
     <target name="phinger:db:run-query" description="Run sql query">
         <if>
@@ -75,10 +75,10 @@
 
     <!--
     Required properties (defaults):
-        phinger.db.dsn       ("mysql:host=127.0.0.1")
-        phinger.db.dbuser    ("root")
-        phinger.db.dbpass    ("")
-        phinger.db.dump_path ("./backup/sql/dump.sql")
+        phinger.db.dsn       (mysql:host=127.0.0.1)
+        phinger.db.dbuser    (root)
+        phinger.db.dbpass    ('')
+        phinger.db.dump_path (./backup/sql/dump.sql)
     -->
     <target name="phinger:db:run-file" description="Run sql file">
         <if>
