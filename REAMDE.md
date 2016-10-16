@@ -10,3 +10,11 @@ Collection of phing targets for database manipulations
   `<import file="{path-to-lib}/db.xml" />`  
   to your build file
 3) ... TBD ...
+
+## Targets
+
+... TBD ...
+
+## Usage demo
+
+... TBD ...
