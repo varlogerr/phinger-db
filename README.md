@@ -10,13 +10,13 @@ Collection of phing targets for database manipulations
 <property file="{path-to-lib}/db.yml" override="false" />  
 <import file="{path-to-lib}/db.xml" />
 ```
-  to your build file
+to your build file  
 3) ... TBD ...  
 
 ## Targets
 
-... TBD ...
+... TBD ...  
 
 ## Usage demo
 
-... TBD ...
+... TBD ...  
