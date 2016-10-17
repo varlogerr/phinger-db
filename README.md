@@ -104,4 +104,74 @@ _{project-path}/build.xml_
 
 ## Usage demo
 
-... TBD ...  
+_{project-path}/my-conf.yml_
+```
+phinger:
+  db:
+    dbname:  test_db
+    dbuser:  user123
+    dbpass:  password
+    dump_path: "./backup/mysql/dump.sql"
+```
+
+_{project-path}/backup/mysql/dump.sql_
+```
+DROP TABLE IF EXISTS `test`;
+
+CREATE TABLE `test` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `subject` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `test` VALUES (1,'hoho');
+```
+
+_{project-path}/build.xml_
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project
+        name="test"
+        default="dummy"
+>
+    <!-- Import your own configs -->
+    <property file="./my-conf.yml" />
+
+    <!-- Import library -->
+    <property file="./vendor/phinger/db/db.yml" override="false" />
+    <import file="./vendor/phinger/db/db.xml" />
+
+    <target name="test">
+        <!-- Reset database -->
+        <phingcall target="phinger:db:reset-db" />
+
+        <!-- Create table -->
+        <phingcall target="phinger:db:run-query">
+            <param
+                    name="phinger.db.dsn"
+                    value="${phinger.db.dsn};dbname=${phinger.db.dbname}"
+            />
+            <param
+                    name="phinger.db.query"
+                    value="CREATE TABLE `test`(id INT UNSIGNED NOT NULL AUTO_INCREMENT, subject VARCHAR(45) DEFAULT NULL, PRIMARY KEY (id));
+                           INSERT INTO `test`(subject) VALUES('hoho')"
+            />
+        </phingcall>
+
+        <!-- Drop database -->
+        <phingcall target="phinger:db:drop-db" />
+
+        <!-- Create database -->
+        <phingcall target="phinger:db:create-db" />
+
+        <!-- Run dump file -->
+        <phingcall target="phinger:db:run-file">
+            <param
+                    name="phinger.db.dsn"
+                    value="${phinger.db.dsn};dbname=${phinger.db.dbname}"
+            />
+        </phingcall>
+    </target>
+</project>
+```  
