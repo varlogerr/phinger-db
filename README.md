@@ -7,7 +7,7 @@ Collection of phing targets for database manipulations
 1) Run `composer require phinger/db`asd  
 2) Add  
 ```
-<property file="{path-to-lib}/db.yml" override="false" />  
+<property file="{path-to-lib}/db.yml" override="false" />
 <import file="{path-to-lib}/db.xml" />
 ```
 to your build file  
