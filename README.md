@@ -52,8 +52,45 @@ _{project-path}/build.xml_
 ```
 
 ## Targets
-
-... TBD ...  
+### Create database
+`phinger:db:create-db`  
+#### Properties / params (defaults):
+* `phinger.db.dsn`       (mysql:host=127.0.0.1)  
+* `phinger.db.dbname`    (acme)  
+* `phinger.db.dbuser`    (root)  
+* `phinger.db.dbpass`    ('')  
+* `phinger.db.charset`   (utf8)  
+* `phinger.db.collation` (utf8_general_ci)  
+### Drop database
+`phinger:db:drop-db`  
+#### Properties / params (defaults):
+* `phinger.db.dsn`       (mysql:host=127.0.0.1)
+* `phinger.db.dbname`    (acme)
+* `phinger.db.dbuser`    (root)
+* `phinger.db.dbpass`    ('')
+### Reset database  
+`phinger:db:reset-db`
+#### Properties / params (defaults):
+* `phinger.db.dsn`       (mysql:host=127.0.0.1)
+* `phinger.db.dbname`    (acme)
+* `phinger.db.dbuser`    (root)
+* `phinger.db.dbpass`    ('')
+* `phinger.db.charset`   (utf8)
+* `phinger.db.collation` (utf8_general_ci)
+### Run sql file  
+`phinger:db:run-file`  
+#### Properties / params (defaults):
+* `phinger.db.dsn`       (mysql:host=127.0.0.1)
+* `phinger.db.dbuser`    (root)
+* `phinger.db.dbpass`    ('')
+* `phinger.db.dump_path` (./backup/sql/dump.sql)
+### Run sql query  
+`phinger:db:run-query`  
+#### Properties / params (defaults):
+* `phinger.db.dsn`    (mysql:host=127.0.0.1)
+* `phinger.db.dbuser` (root)
+* `phinger.db.dbpass` ('')
+* `phinger.db.query`  (SELECT 0;)
 
 ## Usage demo
 
