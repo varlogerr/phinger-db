@@ -2,6 +2,7 @@
     "name": "phinger/db",
     "description": "Phing predefined database targets module",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Varlog",
